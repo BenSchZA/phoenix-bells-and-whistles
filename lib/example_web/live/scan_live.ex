@@ -1,34 +1,30 @@
 defmodule ExampleWeb.ScanLive do
   use Phoenix.LiveView
-  alias ExampleWeb.PageView
+  alias ExampleWeb.ScanView
 
   def render(assigns) do
     ~L"""
-    <div class="sandbox">
-      <div>
-          <form phx-submit="scan">
-              <input name="repo" class="input" type="text" placeholder="e.g. Uniswap/uniswap-frontend"/>
-          </form>
-          <table class="table is-striped is-hoverable is-fullwidth">
-              <thead>
-                  <tr>
-                      <%= for {col, title} <- @cols do %>
-                      <th><%= title %></th>
-                      <% end %>
-                  </tr>
-              </thead>
-              <tbody>
-                  <%= for row <- @results do %>
-                      <tr>
-                      <%= for {col, _title} <- @cols do %>
-                          <td><%= Map.get(row, col) %></td>
-                      <% end %>
-                      </tr>
+      <form phx-submit="scan">
+          <input name="repo" class="input" type="text" placeholder="e.g. Uniswap/uniswap-frontend"/>
+      </form>
+      <table class="table is-striped is-hoverable is-fullwidth">
+          <thead>
+              <tr>
+                  <%= for {col, title} <- @cols do %>
+                  <th><%= title %></th>
                   <% end %>
-              </tbody>
-          </table>
-      </div>
-    </div>
+              </tr>
+          </thead>
+          <tbody>
+              <%= for row <- @results do %>
+                  <tr>
+                  <%= for {col, _title} <- @cols do %>
+                      <td><%= Map.get(row, col) %></td>
+                  <% end %>
+                  </tr>
+              <% end %>
+          </tbody>
+      </table>
     """
   end
 
