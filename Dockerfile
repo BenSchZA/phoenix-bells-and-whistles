@@ -12,9 +12,11 @@ RUN mix local.hex --force && \
     mix local.rebar --force
 
 # set build ENV
-ENV MIX_ENV=prod
-ENV DATABASE_URL=postgres://postgres:postgres@db/basic
-ENV SECRET_KEY_BASE=GDfhPu29ZU0xorkCWh4TcdGKGVNEtK/AbDz6GB0zEhqzEWKq6xUrC7UKmNsIPQLY
+ARG HOST
+ARG PORT
+ARG MIX_ENV
+ARG DATABASE_URL
+ARG SECRET_KEY_BASE
 
 # install mix dependencies
 COPY mix.exs mix.lock ./

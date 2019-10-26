@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :example, Local.Repo,
-  hostname: "localhost"
+  hostname: System.get_env("HOST")
 
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
@@ -14,7 +14,7 @@ config :example, Local.Repo,
 # which you should run after static files are built and
 # before starting your production server.
 config :example, ExampleWeb.Endpoint,
-  url: [host: "localhost", port: 80],
+  url: [host: System.get_env("HOST"), port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
