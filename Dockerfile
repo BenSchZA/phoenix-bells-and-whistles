@@ -52,4 +52,4 @@ ENV HOME=/app
 
 RUN ls -A
 
-CMD ["./bin/example", "start"]
+CMD ["/app/bin/example", "start"]
