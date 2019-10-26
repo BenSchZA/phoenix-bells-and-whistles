@@ -10,7 +10,7 @@ defmodule Example.Application do
     children = [
       # Start the Ecto repository
       #Example.Repo,
-      Local.Repo,
+      # Local.Repo,
       # Start the endpoint when the application starts
       ExampleWeb.Endpoint
       # Starts a worker by calling: Example.Worker.start_link(arg)

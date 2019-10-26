@@ -21,7 +21,7 @@ mkShell {
     shellHook = ''
       mix local.hex
       mix archive.install hex phx_new 1.4.10
-      mix ecto.create
+      # mix ecto.create
       mix phx.server
     '';
 }
