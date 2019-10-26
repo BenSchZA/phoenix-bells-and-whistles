@@ -5,6 +5,13 @@ services:
   phoenix:
     build:
       context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+  phoenix-db:
+    build:
+      context: .
+      dockerfile: Dockerfile.pg
     environment:
       DATABASE_URL: postgres://postgres:postgres@db/basic
       PGUSER: postgres
