@@ -1,27 +1,16 @@
-<h1>Login</h1>
-
-<%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> %>
-  <%= if f.errors != [] do %>
-    <div class="alert alert-danger">
-      <p>Something went wrong. Please check the errors below.</p>
+<div class="pt-24">
+    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <!--Left Col-->
+    <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+        <h1 class="my-4 text-5xl font-bold leading-tight">Explore</h1>
+        <p class="leading-normal text-2xl mb-8">Coming soon...</p>
+        <p class="leading-normal text-2xl mb-8">Search existing KawAPI streams and datasets.</p>
     </div>
-  <% end %>
-
-  <%= label f, :email %>
-  <%= text_input f, :email %>
-  <%= error_tag f, :email %>
-
-  <%= label f, :password %>
-  <%= password_input f, :password %>
-  <%= error_tag f, :password %>
-
-  <%= checkbox f, :remember_me %>
-  <%= label f, :remember_me %>
-  <%= link "Forgot password", to: Routes.password_reset_path(@conn, :new) %>
-
-  <div>
-    <%= submit "Login" %>
-  </div>
-<% end %>
-
-<span><%= link "Back", to: Routes.page_path(@conn, :index) %></span>
+    </div>
+</div>
+<section id="about" class="bg-white border-b py-8">
+    <div class="container max-w-5xl mx-auto m-8">
+        <h1 class="text-gray-700">Login</h1>
+        <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :create)) %>
+    </div>
+</section>
