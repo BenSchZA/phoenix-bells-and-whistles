@@ -19,6 +19,7 @@ mkShell {
     ]);
 
     shellHook = ''
+      export MIX_ENV=dev
       mix local.hex
       mix archive.install hex phx_new 1.4.10
       # mix ecto.create
