@@ -19,6 +19,7 @@ defmodule ExampleWeb.Router do
 
     get "/", PageController, :index
     get "/explore", ExploreController, :index
+    # live "/explore", ExploreLive
     get "/scan", ScanController, :index
     get "/hello/:messenger", HelloController, :show
   end

@@ -4,14 +4,14 @@ defmodule ExampleWeb.ExploreLive do
 
   def render(assigns) do
     ~L"""
-        <div>
-          <form>
-            <input name="q" placeholder="Enter a name"></input>
-          </form>
-        </div>
-        <div>
-          <img src="https://joeschmoe.io/api/v1/<%= @val %>" />
-        </div>
+      <div>
+        <form>
+          <input name="q" placeholder="Enter a name"></input>
+        </form>
+      </div>
+      <div>
+        <img src="https://joeschmoe.io/api/v1/<%= @val %>" />
+      </div>
     """
   end
 
