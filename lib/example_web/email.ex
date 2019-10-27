@@ -107,6 +107,6 @@ defmodule ExampleWeb.Email do
   defp base_email(address) do
     new_email()
     |> to(address)
-    |> from("admin@example.com")
+    |> from("admin@kawapi.io")
   end
 end

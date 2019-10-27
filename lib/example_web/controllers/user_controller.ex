@@ -10,6 +10,7 @@ defmodule ExampleWeb.UserController do
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show]
   plug :id_check when action in [:edit, :update, :delete]
+  plug :guest_check when action in [:new, :create]
 
   def index(conn, _) do
     users = Accounts.list_users()
