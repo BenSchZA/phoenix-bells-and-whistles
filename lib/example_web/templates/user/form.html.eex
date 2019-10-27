@@ -1,6 +1,8 @@
 <%= form_for @changeset, @action, [class: "w-full max-w-sm"], fn f -> %>
   <%= if @changeset.action do %>
-    <p class="text-gray-700">Something went wrong. Please check the errors below.</p>
+    <div class="alert alert-danger">
+      <p class="text-gray-700">Something went wrong. Please check the errors below.</p>
+    </div>
   <% end %>
 
   <div class="md:flex md:items-center mb-6">
