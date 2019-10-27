@@ -20,12 +20,12 @@ services:
       context: .
       dockerfile: Dockerfile.pg
     environment:
-      DATABASE_URL: postgres://postgres:postgres@db/basic
-      PGUSER: postgres
-      PGPASSWORD: postgres
-      PGDATABASE: basic
-      PGPORT: 5432
-      PGHOST: db
+      DATABASE_URL: $DATABASE_URL
+      PGUSER: $PGUSER
+      PGPASSWORD: $PGPASSWORD
+      PGDATABASE: $PGDATABASE
+      PGPORT: $PGPORT
+      PGHOST: $PGHOST
     ports:
       - "4000:4000"
     depends_on:
@@ -33,9 +33,9 @@ services:
   db:
     image: postgres:9.6
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: $PGUSER
+      POSTGRES_PASSWORD: $PGPASSWORD
+      PGDATA: $PGDATA
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
