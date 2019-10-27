@@ -11,16 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-
-    <%# https://cssgradient.io/ %>
-    <style>
-      .gradient {
-        background: rgb(2,0,36);
-        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(37,37,191,1) 35%, rgba(0,212,255,1) 100%);
-      }
-    </style>
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  <body class="leading-normal tracking-normal gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
     <nav id="header" class="fixed w-full z-30 top-0 text-gray-800 bg-white shadow-xl">
 
@@ -83,7 +75,9 @@
     <main>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
+      <div class="pt-24">
+        <%= render @view_module, @view_template, assigns %>
+      </div>
     </main>
     <!--Footer-->
     <%# <footer class="bg-white">
