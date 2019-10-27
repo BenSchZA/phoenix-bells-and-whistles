@@ -22,7 +22,7 @@
   </head>
   <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
-    <nav id="header" class="fixed w-full z-30 top-0 text-gray-800 bg-white">
+    <nav id="header" class="fixed w-full z-30 top-0 text-gray-800 bg-white shadow-xl">
 
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           
