@@ -22,19 +22,19 @@
   </head>
   <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
-    <nav id="header" class="fixed w-full z-30 top-0 text-white">
+    <nav id="header" class="fixed w-full z-30 top-0 text-gray-800 bg-white">
 
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           
         <div class="pl-4 flex items-center">
-          <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#"> 
+          <a class="text-gray-800 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#"> 
             <!--Icon from: http://www.potlabicons.com/ -->
             川 KawAPI
           </a>
         </div>
 
         <div class="block lg:hidden pr-4">
-          <button id="nav-toggle" class="flex items-center p-1 text-orange-800 hover:text-gray-900">
+          <button id="nav-toggle" class="flex items-center p-1 text-blue-800 hover:text-gray-900">
             <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
         </div>
@@ -57,6 +57,18 @@
                 GitHub
               </a>
             </li>
+            <%= if @current_user do %>
+              <%= link "Users", to: Routes.user_path(@conn, :index), class: "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75"%>
+              <%= link @current_user.email, to: Routes.user_path(@conn, :show, @current_user), class: "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75" %>
+              <%= link "Logout", to: Routes.session_path(@conn, :delete, current_session(@conn)), method: :delete, class: "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75" %>
+            <% else %>
+              <li class="mr-3">
+                <%= link "New user", to: Routes.user_path(@conn, :new), class: "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75" %>
+              </li>
+              <li class="mr-3">
+                <%= link "Login", to: Routes.session_path(@conn, :new), class: "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75" %>
+              </li>
+            <% end %>
           </ul>
           <a id="navAction" 
             class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75" 
@@ -140,57 +152,6 @@
     </footer> %>
 
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-
-    <script>
-      var scrollpos = window.scrollY;
-      var header = document.getElementById("header");
-      var navcontent = document.getElementById("nav-content");
-      var navaction = document.getElementById("navAction");
-      var brandname = document.getElementById("brandname");
-      var toToggle = document.querySelectorAll(".toggleColour");
-
-      document.addEventListener('scroll', function() {
-
-      /*Apply classes for slide in bar*/
-      scrollpos = window.scrollY;
-
-        if(scrollpos > 10){
-          header.classList.add("bg-white");
-        navaction.classList.remove("bg-white");
-        navaction.classList.add("gradient");
-        navaction.classList.remove("text-gray-800");
-        navaction.classList.add("text-white");
-        //Use to switch toggleColour colours
-          for (var i = 0; i < toToggle.length; i++) {
-          toToggle[i].classList.add("text-gray-800");
-        toToggle[i].classList.remove("text-white");
-        }
-        header.classList.add("shadow");
-        navcontent.classList.remove("bg-gray-100");
-        navcontent.classList.add("bg-white");
-        }
-        else {
-        header.classList.remove("bg-white");
-        navaction.classList.remove("gradient");
-        navaction.classList.add("bg-white");
-        navaction.classList.remove("text-white");
-        navaction.classList.add("text-gray-800");
-        //Use to switch toggleColour colours
-          for (var i = 0; i < toToggle.length; i++) {
-          toToggle[i].classList.add("text-white");
-        toToggle[i].classList.remove("text-gray-800");
-        }
-        
-        header.classList.remove("shadow");
-        navcontent.classList.remove("bg-white");
-        navcontent.classList.add("bg-gray-100");
-        
-        }
-
-      });
-
-      
-    </script>
 
     <script>
       

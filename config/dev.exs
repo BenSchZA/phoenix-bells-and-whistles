@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :example, Local.Repo,
+config :example, Example.Repo,
   username: "postgres",
   password: "postgres",
   database: "basic",

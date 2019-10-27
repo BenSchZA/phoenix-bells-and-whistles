@@ -7,14 +7,14 @@
 # General application configuration
 use Mix.Config
 
-config :example, Local.Repo,
+config :example, Example.Repo,
   database: "basic",
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
 
 config :example,
-  ecto_repos: [Local.Repo]#Example.Repo
+  ecto_repos: [Example.Repo]
 
 # Configures the endpoint
 config :example, ExampleWeb.Endpoint,
@@ -25,6 +25,16 @@ config :example, ExampleWeb.Endpoint,
   live_view: [
      signing_salt: "AtLq86+3Rzo8/Du50+uUd6frCcZkCu5m"
   ]
+
+# Phauxth authentication configuration
+config :phauxth,
+  user_context: Example.Accounts,
+  crypto_module: Argon2,
+  token_module: ExampleWeb.Auth.Token
+
+# Mailer configuration
+config :example, ExampleWeb.Mailer,
+  adapter: Bamboo.LocalAdapter
 
 # Configures Elixir's Logger
 config :logger, :console,
