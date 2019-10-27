@@ -34,7 +34,14 @@ config :phauxth,
 
 # Mailer configuration
 config :example, ExampleWeb.Mailer,
-  adapter: Bamboo.LocalAdapter
+  adapter: Bamboo.SMTPAdapter, #Bamboo.LocalAdapter
+  server: "smtp.domain",
+  port: 1025,
+  username: System.get_env("SMTP_USERNAME"),
+  password: System.get_env("SMTP_PASSWORD"),
+  tls: :if_available, # can be `:always` or `:never`
+  ssl: false, # can be `true`
+  retries: 1
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -43,6 +50,9 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Start grpc server
+config :grpc, start_server: true
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

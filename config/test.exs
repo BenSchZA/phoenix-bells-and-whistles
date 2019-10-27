@@ -26,3 +26,6 @@ config :argon2_elixir, t_cost: 1, m_cost: 8
 # Mailer test configuration
 config :example, ExampleWeb.Mailer,
   adapter: Bamboo.TestAdapter
+
+# Start grpc server
+config :grpc, start_server: false

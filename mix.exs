@@ -50,6 +50,9 @@ defmodule Example.MixProject do
       {:floki, ">= 0.0.0", only: :test},
       {:httpoison, "~> 1.5"},
       {:poison, "~> 3.1"},
+      {:cowboy, [env: :prod, git: "https://github.com/elixir-grpc/cowboy.git", tag: "grpc-2.6.3", override: true]},
+      {:grpc, github: "elixir-grpc/grpc"},
+      {:protobuf, "~> 0.5.3"},
     ]
   end
 
