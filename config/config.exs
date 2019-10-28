@@ -18,8 +18,8 @@ config :example,
 
 # Configures the endpoint
 config :example, ExampleWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "GDfhPu29ZU0xorkCWh4TcdGKGVNEtK/AbDz6GB0zEhqzEWKq6xUrC7UKmNsIPQLY",
+  url: [host: System.get_env("HOST")],
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: ExampleWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Example.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [
@@ -35,8 +35,9 @@ config :phauxth,
 # Mailer configuration
 config :example, ExampleWeb.Mailer,
   adapter: Bamboo.SMTPAdapter, #Bamboo.LocalAdapter
-  server: "smtp.domain",
-  port: 1025,
+  server: "smtp.sendgrid.net",
+  hostname: System.get_env("HOST"),
+  port: 587, #587,
   username: System.get_env("SMTP_USERNAME"),
   password: System.get_env("SMTP_PASSWORD"),
   tls: :if_available, # can be `:always` or `:never`

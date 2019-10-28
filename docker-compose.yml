@@ -3,7 +3,7 @@ version: '3'
 
 services:
   phoenix:
-    image: yodascholtz/kawapi-phoenix:latest
+    image: localhost:5000/kawapi-phoenix:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,24 +13,30 @@ services:
         MIX_ENV: prod
         DATABASE_URL: $DATABASE_URL
         SECRET_KEY_BASE: $SECRET_KEY_BASE
+        SMTP_USERNAME: $SMTP_USERNAME
+        SMTP_PASSWORD: $SMTP_PASSWORD
     ports:
       - "4000:4000"
   phoenix-db:
+    image: localhost:5000/kawapi-phoenix-psql:latest
     build:
       context: .
-      dockerfile: Dockerfile.pg
-    environment:
-      DATABASE_URL: $DATABASE_URL
-      PGUSER: $PGUSER
-      PGPASSWORD: $PGPASSWORD
-      PGDATABASE: $PGDATABASE
-      PGPORT: $PGPORT
-      PGHOST: $PGHOST
+      dockerfile: Dockerfile
+      args:
+          HOST: $HOST
+          PORT: $PORT
+          MIX_ENV: prod
+          SECRET_KEY_BASE: $SECRET_KEY_BASE
+          SMTP_USERNAME: $SMTP_USERNAME
+          SMTP_PASSWORD: $SMTP_PASSWORD
+          DATABASE_URL: $DATABASE_URL
     ports:
-      - "4000:4000"
+      - "$PORT:$PORT"
     depends_on:
       - db
   db:
+    # mix ecto.setup
+    # createdb --host localhost -p 5433 -U postgres basic
     image: postgres:9.6
     environment:
       POSTGRES_USER: $PGUSER
@@ -39,5 +45,7 @@ services:
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
 volumes:
   pgdata:

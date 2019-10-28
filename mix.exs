@@ -20,7 +20,7 @@ defmodule Example.MixProject do
   def application do
     [
       mod: {Example.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :bamboo, :bamboo_smtp]
     ]
   end
 
@@ -45,6 +45,7 @@ defmodule Example.MixProject do
       {:phauxth, "~> 2.3"},
       {:argon2_elixir, "~> 2.0"},
       {:bamboo, "~> 1.3"},
+      {:bamboo_smtp, "~> 2.1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, "~> 0.3.0"},
       {:floki, ">= 0.0.0", only: :test},
