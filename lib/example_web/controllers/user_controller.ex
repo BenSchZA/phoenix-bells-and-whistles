@@ -11,6 +11,7 @@ defmodule ExampleWeb.UserController do
   plug :user_check when action in [:index, :show]
   plug :id_check when action in [:edit, :update, :delete]
   plug :guest_check when action in [:new, :create]
+  plug :role_check, [roles: ["admin"]] when action in [:index, :delete]
 
   def index(conn, _) do
     users = Accounts.list_users()

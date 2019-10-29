@@ -66,4 +66,19 @@ defmodule ExampleWeb.Authorize do
     |> redirect(to: Routes.session_path(conn, :new))
     |> halt()
   end
+
+  def role_check(%Plug.Conn{assigns: %{current_user: nil}} = conn, _opts) do
+    need_login(conn)
+  end
+
+  def role_check(%Plug.Conn{assigns: %{current_user: current_user}} = conn, opts) do
+    if opts[:roles] && current_user.role in opts[:roles] do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You are not authorized to view this page")
+      |> redirect(to: Routes.user_path(conn, :show, current_user))
+      |> halt()
+    end
+  end
 end

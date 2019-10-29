@@ -7,6 +7,7 @@ defmodule Example.Accounts.User do
 
   @type t :: %__MODULE__{
     id: integer,
+    role: String.t(),
     email: String.t(),
     password_hash: String.t(),
     confirmed_at: DateTime.t() | nil,
@@ -18,6 +19,7 @@ defmodule Example.Accounts.User do
 
   schema "users" do
     field :email, :string
+    field :role, :string, default: "user"
     field :password, :string, virtual: true
     field :password_hash, :string
     field :confirmed_at, :utc_datetime
