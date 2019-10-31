@@ -1,0 +1,8 @@
+<div class="flex justify-center">
+    <section id="about" class="bg-white py-32">
+        <div class="container max-w-5xl mx-auto m-8">
+            <h1 class="text-gray-700">Sign up</h1>
+            <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :create)) %>
+        </div>
+    </section>
+</div>

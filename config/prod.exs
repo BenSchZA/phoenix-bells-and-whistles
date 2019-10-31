@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :example, Local.Repo,
+config :example, Example.Repo,
   hostname: System.get_env("HOST")
 
 # For production, don't forget to configure the url host

@@ -17,6 +17,8 @@ ARG PORT
 ARG MIX_ENV
 ARG DATABASE_URL
 ARG SECRET_KEY_BASE
+ARG SMTP_USERNAME
+ARG SMTP_PASSWORD
 
 # install mix dependencies
 COPY mix.exs mix.lock ./

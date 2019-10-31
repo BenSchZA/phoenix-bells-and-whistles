@@ -20,7 +20,7 @@ defmodule Example.MixProject do
   def application do
     [
       mod: {Example.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :bamboo, :bamboo_smtp]
     ]
   end
 
@@ -42,11 +42,18 @@ defmodule Example.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
+      {:phauxth, "~> 2.3"},
+      {:argon2_elixir, "~> 2.0"},
+      {:bamboo, "~> 1.3"},
+      {:bamboo_smtp, "~> 2.1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, "~> 0.3.0"},
       {:floki, ">= 0.0.0", only: :test},
       {:httpoison, "~> 1.5"},
       {:poison, "~> 3.1"},
+      {:cowboy, [env: :prod, git: "https://github.com/elixir-grpc/cowboy.git", tag: "grpc-2.6.3", override: true]},
+      {:grpc, github: "elixir-grpc/grpc"},
+      {:protobuf, "~> 0.5.3"},
     ]
   end
 

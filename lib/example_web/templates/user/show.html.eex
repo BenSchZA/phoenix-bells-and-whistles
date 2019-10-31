@@ -1,0 +1,20 @@
+<h2>User profile</h2>
+
+<ul>
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+</ul>
+
+<div class="w-full max-w-sm">
+  <div class="md:flex md:items-center">
+    <div class="md:w-2/3">
+      <span><%= link "Back", to: Routes.explore_path(@conn, :index), 
+        class: "shadow bg-gray-600 hover:bg-gray-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" %></span>
+      <span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user), 
+        class: "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" %></span>
+    </div>
+  </div>
+</div>
+
