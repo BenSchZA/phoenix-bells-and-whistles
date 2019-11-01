@@ -7,7 +7,10 @@
     <title>川 KawAPI</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   </head>
   <body class="gradient leading-normal tracking-normal" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
@@ -65,7 +68,7 @@
     <main>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <div class="pt-24">
+      <div id="app-content">
         <%= render @view_module, @view_template, assigns %>
       </div>
     </main>
@@ -143,6 +146,10 @@
       
       var navMenuDiv = document.getElementById("nav-content");
       var navMenu = document.getElementById("nav-toggle");
+      var navHeaderHeight = document.getElementById("header").clientHeight;
+      var bodyDiv = document.getElementById("app-content");
+
+      bodyDiv.style.setProperty("padding-top", `${navHeaderHeight}px`);
       
       document.onclick = check;
       function check(e) {
@@ -167,7 +174,7 @@
       function checkParent(t, elm) {
         while(t.parentNode) {
         if( t == elm ) {return true;}
-        t = t.parentNode;
+          t = t.parentNode;
         }
         return false;
       }
