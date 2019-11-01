@@ -20,11 +20,11 @@ mkShell {
     ]);
 
     shellHook = ''
-      export MIX_ENV=dev
-      export PGDATA="$PWD/db"
-      mix local.hex
-      mix archive.install hex phx_new 1.4.10
-      mix ecto.create
-      mix phx.server
+      # export MIX_ENV=dev
+      # export PGDATA="$PWD/db"
+      # mix local.hex
+      # mix archive.install hex phx_new 1.4.10
+      # mix ecto.create
+      # mix phx.server
     '';
 }
