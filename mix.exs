@@ -54,6 +54,8 @@ defmodule Example.MixProject do
       {:cowboy, [env: :prod, git: "https://github.com/elixir-grpc/cowboy.git", tag: "grpc-2.6.3", override: true]},
       {:grpc, github: "elixir-grpc/grpc"},
       {:protobuf, "~> 0.5.3"},
+      {:absinthe, "~> 1.4"},
+      {:absinthe_plug, "~> 1.4"}
     ]
   end
 

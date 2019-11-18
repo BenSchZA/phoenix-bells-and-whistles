@@ -33,6 +33,16 @@ defmodule ExampleWeb.Router do
     put "/password_resets/update", PasswordResetController, :update
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: ExampleWeb.Schema
+
+    forward "/", Absinthe.Plug,
+      schema: ExampleWeb.Schema
+  end
+
   if Mix.env() == :dev do
     forward "/sent_emails", Bamboo.SentEmailViewerPlug
   end
