@@ -1,1 +1,1 @@
-# kawapi-phoenix
+# Phoenix Template w/ bells & whistles
