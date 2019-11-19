@@ -1,0 +1,3 @@
+<div class="phx-hero">
+  <%= Phoenix.LiveView.live_render(@conn, AppWeb.ScanLive) %>
+</div>

@@ -48,7 +48,7 @@ RUN apk add --update bash openssl
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=build /app/_build/prod/rel/example ./
+COPY --from=build /app/_build/prod/rel/app ./
 RUN chown -R nobody: /app
 USER nobody
 
@@ -56,4 +56,4 @@ ENV HOME=/app
 
 RUN ls -A
 
-CMD ["/app/bin/example", "start"]
+CMD ["/app/bin/app", "start"]

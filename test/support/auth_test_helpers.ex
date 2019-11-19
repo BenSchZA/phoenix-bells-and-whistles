@@ -1,10 +1,10 @@
-defmodule ExampleWeb.AuthTestHelpers do
+defmodule AppWeb.AuthTestHelpers do
   use Phoenix.ConnTest
 
   import Ecto.Changeset
 
-  alias Example.{Accounts, Repo, Sessions}
-  alias ExampleWeb.Auth.Token
+  alias App.{Accounts, Repo, Sessions}
+  alias AppWeb.Auth.Token
 
   def add_user(email) do
     user = %{email: email, password: "reallyHard2gue$$"}

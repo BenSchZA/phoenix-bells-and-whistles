@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :example, Example.Repo,
+config :app, App.Repo,
   username: "postgres",
   password: "postgres",
   database: "basic",
@@ -15,7 +15,7 @@ config :example, Example.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :example, ExampleWeb.Endpoint,
+config :app, AppWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :example, ExampleWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :example, ExampleWeb.Endpoint,
+config :app, AppWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/example_web/{live,views}/.*(ex)$",
-      ~r"lib/example_web/templates/.*(eex)$"
+      ~r"lib/app_web/{live,views}/.*(ex)$",
+      ~r"lib/app_web/templates/.*(eex)$"
     ]
   ]
 

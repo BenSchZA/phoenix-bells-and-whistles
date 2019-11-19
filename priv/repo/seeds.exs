@@ -11,6 +11,6 @@ users = [
 ]
 
 for user <- users do
-  {:ok, user} = Example.Accounts.create_user(user)
-  Example.Accounts.confirm_user(user)
+  {:ok, user} = App.Accounts.create_user(user)
+  App.Accounts.confirm_user(user)
 end

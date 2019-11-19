@@ -1,3 +1,0 @@
-<div class="phx-hero">
-  <%= Phoenix.LiveView.live_render(@conn, ExampleWeb.ScanLive) %>
-</div>

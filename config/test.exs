@@ -1,16 +1,16 @@
 use Mix.Config
 
 # Configure your database
-config :example, Example.Repo,
+config :app, App.Repo,
   username: "postgres",
   password: "postgres",
-  database: "example_test",
+  database: "app_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :example, ExampleWeb.Endpoint,
+config :app, AppWeb.Endpoint,
   http: [port: 4002],
   server: false
 
@@ -24,7 +24,7 @@ config :argon2_elixir, t_cost: 1, m_cost: 8
 #config :pbkdf2_elixir, rounds: 1
 
 # Mailer test configuration
-config :example, ExampleWeb.Mailer,
+config :app, AppWeb.Mailer,
   adapter: Bamboo.TestAdapter
 
 # Start grpc server

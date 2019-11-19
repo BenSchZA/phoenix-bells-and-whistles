@@ -7,33 +7,33 @@
 # General application configuration
 use Mix.Config
 
-config :example, Example.Repo,
+config :app, App.Repo,
   database: "basic",
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
 
-config :example,
-  ecto_repos: [Example.Repo]
+config :app,
+  ecto_repos: [App.Repo]
 
 # Configures the endpoint
-config :example, ExampleWeb.Endpoint,
+config :app, AppWeb.Endpoint,
   url: [host: System.get_env("HOST")],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  render_errors: [view: ExampleWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Example.PubSub, adapter: Phoenix.PubSub.PG2],
+  render_errors: [view: AppWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: App.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [
      signing_salt: "AtLq86+3Rzo8/Du50+uUd6frCcZkCu5m"
   ]
 
 # Phauxth authentication configuration
 config :phauxth,
-  user_context: Example.Accounts,
+  user_context: App.Accounts,
   crypto_module: Argon2,
-  token_module: ExampleWeb.Auth.Token
+  token_module: AppWeb.Auth.Token
 
 # Mailer configuration
-config :example, ExampleWeb.Mailer,
+config :app, AppWeb.Mailer,
   adapter: Bamboo.SMTPAdapter, #Bamboo.LocalAdapter
   server: "smtp.sendgrid.net",
   hostname: System.get_env("HOST"),

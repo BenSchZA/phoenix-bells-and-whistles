@@ -1,4 +1,4 @@
-defmodule Example.Repo.Migrations.AddUserRole do
+defmodule App.Repo.Migrations.AddUserRole do
   use Ecto.Migration
 
   def change do
